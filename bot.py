@@ -19,7 +19,8 @@ PORT = int(os.environ.get('PORT', 8443))
 # context. Error handlers also receive the raised TelegramError object in error.
 def start(update, context):
     """Send a message when the command /start is issued."""
-    update.message.reply_text('Hi!')
+    message = calculate_wbgt()
+    update.message.reply_text(message)
 
 def help(update, context):
     """Send a message when the command /help is issued."""
