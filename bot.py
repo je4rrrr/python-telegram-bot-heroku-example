@@ -13,6 +13,8 @@ logger = logging.getLogger()
 
 mode = "dev"
 TOKEN = "1662384534:AAHRMfA1NZMIInG1pLtCKwAs4YG1JA4NQeM"
+
+
 if mode == "dev":
     def run(updater):
         updater.start_polling()
@@ -21,9 +23,10 @@ elif mode == "prod":
         PORT = int(os.environ.get("PORT", "8443"))
         HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME")
         updater.start_webhook(listen="0.0.0.0",
-                              port=PORT,
-                              url_path=TOKEN)
-        updater.bot.set_webhook("https://{}.herokuapp.com/{}".format(HEROKU_APP_NAME, TOKEN))
+                      port=PORT,
+                      url_path=TOKEN,
+                      webhook_url="https://{}.herokuapp.com/{}".format(HEROKU_APP_NAME, TOKEN))
+        updater.idle()
 else:
     logger.error("No MODE specified!")
     sys.exit(1)
