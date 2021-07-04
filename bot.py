@@ -26,6 +26,10 @@ def help(update, context):
     """Send a message when the command /help is issued."""
     update.message.reply_text('Help!')
 
+def emoji(update, context):
+    """Send a message when the command /help is issued."""
+    update.message.reply_text('testing 😀')
+
 def echo(update, context):
     """Echo the user message."""
     update.message.reply_text(update.message.text)
