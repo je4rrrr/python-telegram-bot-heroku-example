@@ -13,7 +13,7 @@ logger = logging.getLogger()
 
 mode = "dev"
 TOKEN = "1662384534:AAHRMfA1NZMIInG1pLtCKwAs4YG1JA4NQeM"
-
+HEROKU_APP_NAME = "tranquil-acadia-50401"
 
 if mode == "dev":
     def run(updater):
