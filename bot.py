@@ -94,7 +94,7 @@ def calculate_wbgt():
         if station[1][4] == "ERROR":
             symbol = "Error ⚠️"
 
-        output + "Station: " + station[1][0] + "\n" + "🌡 " + str(station[1][1]) + "°C 💦 " + str(station[1][2]) + "%" + "\n" + "Code " + symbol + "\n"
+        output = output + "Station: " + station[1][0] + "\n" + "🌡 " + str(station[1][1]) + "°C 💦 " + str(station[1][2]) + "%" + "\n" + "Code " + symbol + "\n"
     return output
 
 def main():
