@@ -76,9 +76,24 @@ def calculate_wbgt():
             stations[station_id][4] = 'BLACK'
         else:
             stations[station_id][4] = 'ERROR'
+    for station in stations.items():
+        symbol = ""
+        if station[1][4] == "WHITE":
+            symbol = "White ⬜"
+        if station[1][4] == "GREEN":
+            symbol = "Green 🟩"
+        if station[1][4] == "YELLOW":
+            symbol = "Yellow 🟨"
+        if station[1][4] == "RED":
+            symbol = "Red 🟥"
+        if station[1][4] == "BLACK":
+            symbol = "Black ⬛"
+        if station[1][4] == "ERROR":
+            symbol = "Error ⚠️"
         
-    return stations
-
+        output = ""
+        output = ("Station: " + station[1][0] + "\n" + "🌡 " + str(station[1][1]) + "°C 💦 " + str(station[1][2]) + "%" + "\n" + "Code " + symbol + "\n")
+    return output
 
 def main():
     """Start the bot."""
