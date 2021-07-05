@@ -17,8 +17,8 @@ PORT = int(os.environ.get('PORT', 8443))
 
 # Define a few command handlers. These usually take the two arguments update and
 # context. Error handlers also receive the raised TelegramError object in error.
-def start(update, context):
-    """Send a message when the command /start is issued."""
+def wbgt(update, context):
+    """Send a message when the command /wbgt is issued."""
     message = calculate_wbgt()
     update.message.reply_text(message)
 
@@ -26,13 +26,9 @@ def help(update, context):
     """Send a message when the command /help is issued."""
     update.message.reply_text('Help!')
 
-def emoji(update, context):
-    """Send a message when the command /help is issued."""
-    update.message.reply_text('testing 😀')
-
-def echo(update, context):
-    """Echo the user message."""
-    update.message.reply_text(update.message.text)
+def start(update, context):
+    """Send a message when the command /start is issued."""
+    update.message.reply_text('run /wbgt!')
 
 def error(update, context):
     """Log Errors caused by Updates."""
@@ -108,12 +104,9 @@ def main():
     dp = updater.dispatcher
 
     # on different commands - answer in Telegram
-    dp.add_handler(CommandHandler("start", start))
+    dp.add_handler(CommandHandler("wbgt", wbgt))
     dp.add_handler(CommandHandler("help", help))
-    dp.add_handler(CommandHandler("emoji", emoji))
-
-    # on noncommand i.e message - echo the message on Telegram
-    dp.add_handler(MessageHandler(Filters.text, echo))
+    dp.add_handler(CommandHandler("start", start))
 
     # log all errors
     dp.add_error_handler(error)
