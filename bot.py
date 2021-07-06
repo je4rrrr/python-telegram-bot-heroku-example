@@ -15,6 +15,9 @@ TOKEN = os.environ['TOKEN']
 HEROKU_APP_NAME = "tranquil-acadia-50401"
 PORT = int(os.environ.get('PORT', 8443))
 
+print("retrieving token")
+print(TOKEN)
+
 # Define a few command handlers. These usually take the two arguments update and
 # context. Error handlers also receive the raised TelegramError object in error.
 def wbgt(update, context):
