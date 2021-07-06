@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger()
 
-TOKEN = "1662384534:AAHRMfA1NZMIInG1pLtCKwAs4YG1JA4NQeM"
+TOKEN = os.environ.get("TOKEN")
 HEROKU_APP_NAME = "tranquil-acadia-50401"
 PORT = int(os.environ.get('PORT', 8443))
 
